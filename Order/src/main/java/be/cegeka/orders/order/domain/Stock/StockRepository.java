@@ -18,7 +18,7 @@ public class StockRepository {
     }
 
     public void addStock(Item item, int quantity){
-        entityManager.createQuery("insert into Stock", Stock.class).
+        //entityManager.createQuery("insert into Stock", Stock.class)
     }
 
     public void updateQuantity(){

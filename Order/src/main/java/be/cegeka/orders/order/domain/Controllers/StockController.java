@@ -32,9 +32,11 @@ private StockService stockService;
 
     @ResponseBody
     @RequestMapping(method = POST)
-    public void addStock(@RequestParam(value = "Item") Item item,
+    public void addStock(@RequestParam(value = "Name") String name,
+                         @RequestParam(value = "Description") String description,
+                         @RequestParam(value = "sellingPrice") double sellingPrice,
                          @RequestParam(value = "Quantity") int quantity){
-        stockService.addStock(item, quantity);
+        stockService.addStock(name, description, sellingPrice, quantity);
     }
 
     @ResponseBody
