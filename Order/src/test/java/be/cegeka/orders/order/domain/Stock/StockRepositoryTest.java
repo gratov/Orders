@@ -64,8 +64,10 @@ public class StockRepositoryTest {
     }
 
     @Test
-    public void updateItemQuantity_updatesQuantity(){
-        
+    public void updateQuantity_updatesQuantity(){
+        stockRepository.addStock(stock);
+        stockRepository.updateQuantity(item,10);
+        assertThat(stockRepository.getStockByItem(item).getQuantity()).isEqualTo(20);
 
     }
 

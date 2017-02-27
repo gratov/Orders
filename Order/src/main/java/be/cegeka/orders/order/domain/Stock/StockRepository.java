@@ -24,19 +24,19 @@ public class StockRepository {
     }
 
     public void updateQuantity(Item item, int quantityToAdd){
-        Stock stock = getStockItem(item);
+        Stock stock = getStockByItem(item);
         stock.addQuantity(quantityToAdd);
         entityManager.persist(stock);
         entityManager.flush();
     }
 
-    public Stock getStockItem(Item item) {
-        TypedQuery<Stock> query = entityManager.createQuery("select quantity from Stock s where ITEM_ID = :id",Stock.class);
+    public Stock getStockByItem(Item item) {
+        TypedQuery<Stock> query = entityManager.createQuery("select s from Stock s where ITEM_ID = :id",Stock.class);
         return query.setParameter("id", item.getId()).getSingleResult();
     }
 
     public int getItemQuantity (Item item){
-        Stock stock =  getStockItem(item);
+        Stock stock =  getStockByItem(item);
         return stock.getQuantity();
     }
 
