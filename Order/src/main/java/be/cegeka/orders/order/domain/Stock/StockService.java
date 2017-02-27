@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package be.cegeka.orders.order.domain.Stock;
 
 
