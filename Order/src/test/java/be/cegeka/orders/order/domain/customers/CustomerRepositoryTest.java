@@ -30,7 +30,6 @@ public class CustomerRepositoryTest {
     private EntityManager entityManager;
 
     @Inject
-    private CustomerService customerService;
     private CustomerRepository customerRepository;
     private Customer seppe, johan;
     Order order1;
@@ -59,11 +58,13 @@ public class CustomerRepositoryTest {
         assertThat(customerRepository.getCustomerByID(seppe.getId()).getOrders()).contains(order1);
     }
     @Test
-    public void AddCustomer_ShouldAddCustomer() throws Exception{
-        customerRepository.addCustomer(seppe);
-        verify(customerRepository).addCustomer(new Customer("Seppe","Gielen","seppe.gielen@cegeka.com","Leuven","012345678"));
-    }
+    public void AddCustomer_ShouldAddCustomer() throws Exception {
+        Customer kevin = new Customer("kevin","smet","smetkevin@yahoo.com","willebroek","1234567");
+        customerRepository.addCustomer(kevin);
+        entityManager.find(Customer.class, kevin.getId());
+        assertThat(entityManager.find(Customer.class, kevin.getId())).isNotNull();
 
+    }
     @After
     public void cleanDatabase(){
         entityManager.clear();
