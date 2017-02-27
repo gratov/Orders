@@ -29,25 +29,21 @@ public class Customer {
     @JoinColumn(name = "CUSTOMER_ID", nullable = false)
     private List<Order> orders;
 
-    public Customer() {
+    public Customer(String firstName, String lastName, String emailAddress, String address, String phoneNumber) {
         orders = new ArrayList<>();
     }
 
-    public Customer(int id, String firstName, String lastName, String emailAddress, String address, String phoneNumber) {
+    public Customer(int id, String firstName, String lastName, String emailAddress, String address, String phoneNumber, List <Order>orders) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.emailAddress = emailAddress;
         this.address = address;
         this.phoneNumber = phoneNumber;
-        orders = new ArrayList<>();
-    }
-
-    public Customer(String name, String lastName, List<Order> orders) {
-        this.firstName = name;
-        this.lastName = lastName;
         this.orders = orders;
     }
+
+
 
     public int getId() {
         return id;

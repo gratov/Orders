@@ -26,35 +26,35 @@ import static org.junit.Assert.*;
 @Transactional
 public class StockRepositoryTest {
 
-    @PersistenceContext
-    private EntityManager entityManager;
-
-    @Inject
-    private StockRepository stockRepository;
-    private List<Stock> stockItems;
-    private Item item, item1;
-    private Stock stock, stock1;
-
-
-    @Before
-    public void setUpDatabase(){
-        item = new Item("smurf", "blue", 2.0);
-        item1 = new Item("colaRola", "silver balls", 3.0);
-        stock = new Stock(10, item);
-        stock1 = new Stock(5, item1);
-
-    }
-
-    @Test
-    public void getAllStock_returnsAllStock() throws Exception{
-
-        stock.addItem(item);
-        stock1.addItem(item1);
-
-        entityManager.persist(stock);
-        entityManager.persist(stock1);
-        assertThat(stockRepository.getAllStock()).contains(stock, stock1);
-    }
-
+//    @PersistenceContext
+//    private EntityManager entityManager;
+//
+//    @Inject
+//    private StockRepository stockRepository;
+//    private List<Stock> stockItems;
+//    private Item item, item1;
+//    private Stock stock, stock1;
+//
+//
+//    @Before
+//    public void setUpDatabase(){
+//        item = new Item("smurf", "blue", 2.0);
+//        item1 = new Item("colaRola", "silver balls", 3.0);
+//        stock = new Stock(10, item);
+//        stock1 = new Stock(5, item1);
+//
+//    }
+//
+//    @Test
+//    public void getAllStock_returnsAllStock() throws Exception{
+//
+//        stock.addItem(item);
+//        stock1.addItem(item1);
+//
+//        entityManager.persist(stock);
+//        entityManager.persist(stock1);
+//        assertThat(stockRepository.getAllStock()).contains(stock, stock1);
+//    }
+//
 
 }
