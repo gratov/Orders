@@ -37,7 +37,7 @@ public class StockService {
     }
 
     public void addStock(Item item, int quantity) {
-        stockRepository.addStock();
+        stockRepository.addStock(item, quantity);
     }
 
     public void updateQuantity(Item item, int quantity) {

@@ -18,7 +18,12 @@ public class StockRepository {
     }
 
     public void addStock(Item item, int quantity){
-        entityManager.createQuery("")
+        entityManager.createQuery("insert into Stock", Stock.class).
+    }
+
+    public void updateQuantity(){
+
     }
     //maybe should make a method to add stock and a method to alter table column Quantity value or something?
 }
+
