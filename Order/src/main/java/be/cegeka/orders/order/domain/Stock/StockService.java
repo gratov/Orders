@@ -34,4 +34,8 @@ public class StockService {
         return stockRepository.getItemQuantity(item);
 
     }
+
+    public void updateQuantity(Item item, int quantity) {
+        stockRepository.updateQuantity(item,quantity);
+    }
 }
