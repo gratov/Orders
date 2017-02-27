@@ -65,4 +65,7 @@ public class Stock {
         return quantity;
     }
 
+    public void addQuantity(int quantityToAdd) {
+        quantity += quantityToAdd;
+    }
 }
