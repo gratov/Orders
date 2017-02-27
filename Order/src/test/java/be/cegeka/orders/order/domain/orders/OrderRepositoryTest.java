@@ -35,7 +35,7 @@ public class OrderRepositoryTest {
 
     @Before
     public void db_setup(){
-        customer = new Customer("Kevin","Smet");
+        customer = new Customer("Kevin","Smet","kevin.smet@cegeka.com","willebroek","456789");
         order1 = new Order(new Date());
         order2 =  new Order(new Date());
         customer.addOrder(order1);
