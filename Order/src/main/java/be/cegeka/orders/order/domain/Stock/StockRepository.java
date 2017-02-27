@@ -17,11 +17,12 @@ public class StockRepository {
         return entityManager.createQuery("select s from Stock s", Stock.class).getResultList();
     }
 
-    public void addStock(Item item, int quantity) {
+    public void addStock(Item item, int quantity){
 
-        entityManager.createQuery("insert into Stock", Stock.class).
+        //entityManager.createQuery("insert into Stock", Stock.class)
 
     }
+
     public void updateQuantity(){
 
     }
