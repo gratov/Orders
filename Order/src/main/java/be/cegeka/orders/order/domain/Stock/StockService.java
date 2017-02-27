@@ -27,12 +27,11 @@ public class StockService {
         if(stockRepository.getAllStock().contains(stock)){
             stockRepository.updateQuantity(item, quantity);
         }
-        stockRepository.addStock(item, quantity);
+        stockRepository.addStock(stock);
     }
 
     public int getItemQuantity(Item item) {
         return stockRepository.getItemQuantity(item);
-
     }
 
     public void updateQuantity(Item item, int quantity) {

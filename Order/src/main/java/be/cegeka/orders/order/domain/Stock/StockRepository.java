@@ -18,8 +18,7 @@ public class StockRepository {
         return entityManager.createQuery("select s from Stock s", Stock.class).getResultList();
     }
 
-    public void addStock(Item item, int quantity){
-        Stock stock = new Stock(quantity,item);
+    public void addStock(Stock stock){
         entityManager.persist(stock);
         entityManager.flush();
     }
@@ -40,6 +39,6 @@ public class StockRepository {
         Stock stock =  getStockItem(item);
         return stock.getQuantity();
     }
-    //maybe should make a method to add stock and a method to alter table column Quantity value or something?
+
 }
 

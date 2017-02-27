@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class StockQuantityTest {
+public class StockServiceTest {
 
     private StockService stockQuantity;
     private Item item, item1;

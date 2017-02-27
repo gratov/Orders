@@ -28,32 +28,16 @@ public class Stock {
     public Stock() {
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Stock stock = (Stock) o;
-
-        return item != null ? item.equals(stock.item) : stock.item == null;
-    }
-
-    @Override
-    public int hashCode() {
-        return item != null ? item.hashCode() : 0;
-    }
-
     public Stock(int quantity, Item item) {
         this.quantity = quantity;
         this.item = item;
-
     }
 
     public int getId() {
         return id;
     }
 
-    public void addItem(Item item) {
+    public void setItem(Item item) {
         this.item = item;
     }
 
@@ -67,5 +51,20 @@ public class Stock {
 
     public void addQuantity(int quantityToAdd) {
         quantity += quantityToAdd;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Stock stock = (Stock) o;
+
+        return item != null ? item.equals(stock.item) : stock.item == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return item != null ? item.hashCode() : 0;
     }
 }
