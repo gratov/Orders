@@ -22,7 +22,9 @@ public class CustomerRepository {
         return query.setParameter("id", id).getSingleResult();
     }
 
-    public void addCustomer(Customer customer){
-        customers.add(customer);
+
+
+    public void addCustomer(Customer customer) {
+        entityManager.persist(customer);
     }
 }

@@ -23,12 +23,12 @@ public class StockQuantityTest {
         stock = new Stock(quantity, item);
     }
 
-    @Test
-    public void getAllStock_returnsAllStock() throws Exception {
-
-        stock.addItem(item);
-        int expected = 1;
-
-        assertThat(stockQuantity.getItemQuantity(quantity)).isEqualTo(expected);
-    }
+//    @Test
+//    public void getAllStock_returnsAllStock() throws Exception {
+//
+//        stock.addItem(item);
+//        int expected = 1;
+//
+//        assertThat(stockQuantity.getItemQuantity(quantity)).isEqualTo(expected);
+//    }
 }

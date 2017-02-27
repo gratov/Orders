@@ -18,6 +18,7 @@ import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.verify;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -29,14 +30,15 @@ public class CustomerRepositoryTest {
     private EntityManager entityManager;
 
     @Inject
+    private CustomerService customerService;
     private CustomerRepository customerRepository;
     private Customer seppe, johan;
     Order order1;
 
     @Before
     public void setupDatabase() {
-        seppe = new Customer("Seppe", "Gielen");
-        johan = new Customer("Johan", "Vdw");
+        seppe = new Customer("Seppe", "Gielen","seppe.gielen@cegeka.com","Leuven","012345678");
+        johan = new Customer("Johan", "Vdw","johan.vdw@hotmail.com","Antwerpen","4567897");
         order1 = new Order();
         seppe.addOrder(order1);
         entityManager.persist(seppe);
@@ -55,6 +57,11 @@ public class CustomerRepositoryTest {
     @Test
     public void getCustomerByID_ShouldReturnCustomerAndOrderDetails() throws Exception {
         assertThat(customerRepository.getCustomerByID(seppe.getId()).getOrders()).contains(order1);
+    }
+    @Test
+    public void AddCustomer_ShouldAddCustomer() throws Exception{
+        customerRepository.addCustomer(seppe);
+        verify(customerRepository).addCustomer(new Customer("Seppe","Gielen","seppe.gielen@cegeka.com","Leuven","012345678"));
     }
 
     @After
