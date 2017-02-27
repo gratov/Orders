@@ -5,6 +5,7 @@ import be.cegeka.orders.order.domain.items.Item;
 
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.persistence.GeneratedValue;
 import java.util.List;
 
 @Named
@@ -15,23 +16,6 @@ public class StockService {
     private Stock stock;
     private Item item;
 
-    //My Idea
-    /*
-    public int getQuantity(){
-
-        int quantity;
-        if (stockRepository.getAllStock().contains(null)){
-           return quantity = 0;
-        }
-        return quantity = stock.getQuantity();
-    }
-
-    public void addItemIncreasesQuantity(int quantity){
-
-        stock.addItem(item);
-            quantity++;
-        }
-    */
     public List<Stock> getAllStock() {
         return stockRepository.getAllStock();
     }
@@ -41,17 +25,13 @@ public class StockService {
         item = new Item(name, deription, sellingPrice);
         stock = new Stock(quantity, item);
         if(stockRepository.getAllStock().contains(stock)){
-
+            stockRepository.updateQuantity(item, quantity);
         }
-
         stockRepository.addStock(item, quantity);
     }
 
-    public void updateQuantity(Item item, int quantity) {
-    }
+    public int getItemQuantity(Item item) {
+        return stockRepository.getItemQuantity(item);
 
-
-    public boolean getItemQuantity(int quantity) {
-        return false;
     }
 }
