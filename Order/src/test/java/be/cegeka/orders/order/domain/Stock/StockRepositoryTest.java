@@ -71,4 +71,10 @@ public class StockRepositoryTest {
 
     }
 
+    @Test
+    public void getStockQuantity_returnsStockQuantity(){
+        stockRepository.addStock(stock);
+        assertThat(stockRepository.getStockQuantity(item)).isEqualTo(10);
+    }
+
 }

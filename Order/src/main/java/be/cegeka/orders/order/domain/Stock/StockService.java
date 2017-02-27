@@ -24,17 +24,19 @@ public class StockService {
 
         item = new Item(name, deription, sellingPrice);
         stock = new Stock(quantity, item);
-        if(stockRepository.getAllStock().contains(stock)){
+        if(stockRepository.checkIfStockIsPresent(stock)){
             stockRepository.updateQuantity(item, quantity);
+        }else {
+            stockRepository.addStock(stock);
         }
-        stockRepository.addStock(stock);
     }
 
-    public int getItemQuantity(Item item) {
-        return stockRepository.getItemQuantity(item);
+    public int getStockQuantity(Item item) {
+        return stockRepository.getStockQuantity(item);
     }
 
     public void updateQuantity(Item item, int quantity) {
         stockRepository.updateQuantity(item,quantity);
     }
+
 }

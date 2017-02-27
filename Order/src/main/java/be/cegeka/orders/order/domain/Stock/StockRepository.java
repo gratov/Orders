@@ -35,10 +35,12 @@ public class StockRepository {
         return query.setParameter("id", item.getId()).getSingleResult();
     }
 
-    public int getItemQuantity (Item item){
+    public int getStockQuantity (Item item){
         Stock stock =  getStockByItem(item);
         return stock.getQuantity();
     }
-
+    public boolean checkIfStockIsPresent(Stock stock){
+        return getAllStock().contains(stock);
+    }
 }
 

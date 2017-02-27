@@ -36,6 +36,7 @@ private StockService stockService;
                          @RequestParam(value = "Description") String description,
                          @RequestParam(value = "sellingPrice") double sellingPrice,
                          @RequestParam(value = "Quantity") int quantity){
+
         stockService.addStock(name, description, sellingPrice, quantity);
     }
 
