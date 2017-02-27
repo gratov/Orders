@@ -20,7 +20,8 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 @RequestMapping("/stock")
 public class StockController {
 
-@Inject
+
+    @Inject
 private StockService stockService;
 
     @ResponseBody

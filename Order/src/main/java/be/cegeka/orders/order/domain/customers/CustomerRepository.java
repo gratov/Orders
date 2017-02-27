@@ -12,7 +12,7 @@ public class CustomerRepository {
     @PersistenceContext
     private EntityManager entityManager;
 
-    public List<Customer> getAll(){
+    public List<Customer> getAllCustomers(){
         return entityManager.createQuery("select c from Customer c" , Customer.class).getResultList();
     }
 
@@ -20,5 +20,9 @@ public class CustomerRepository {
     public Customer getCustomerByID(int id) {
         TypedQuery<Customer> query =  entityManager.createQuery("select c from Customer c where CUSTOMER_ID = :id", Customer.class);
         return query.setParameter("id", id).getSingleResult();
+    }
+
+    public void addCustomer(Customer customer){
+        customers.add(customer);
     }
 }

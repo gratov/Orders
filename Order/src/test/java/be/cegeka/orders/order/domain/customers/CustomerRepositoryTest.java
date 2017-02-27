@@ -45,7 +45,7 @@ public class CustomerRepositoryTest {
 
     @Test
     public void getAllShouldReturnAll() throws Exception {
-        assertThat(customerRepository.getAll()).contains(seppe, johan);
+        assertThat(customerRepository.getAllCustomers()).contains(seppe, johan);
     }
 
     @Test
