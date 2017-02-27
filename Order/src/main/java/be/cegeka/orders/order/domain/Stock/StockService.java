@@ -36,7 +36,14 @@ public class StockService {
         return stockRepository.getAllStock();
     }
 
-    public void addStock(Item item, int quantity) {
+    public void addStock(String name, String deription, double sellingPrice, int quantity) {
+
+        item = new Item(name, deription, sellingPrice);
+        stock = new Stock(quantity, item);
+        if(stockRepository.getAllStock().contains(stock)){
+
+        }
+
         stockRepository.addStock(item, quantity);
     }
 
@@ -44,4 +51,7 @@ public class StockService {
     }
 
 
+    public boolean getItemQuantity(int quantity) {
+        return false;
+    }
 }
