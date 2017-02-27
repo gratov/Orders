@@ -25,10 +25,7 @@ public class CustomerRepository {
     }
 
 
-
     public void addCustomer(Customer customer) {
-        List<Customer> customers = new ArrayList<>();
-        customers.add(customer);
-        entityManager.persist(customer);
+      entityManager.persist(customer);
     }
 }

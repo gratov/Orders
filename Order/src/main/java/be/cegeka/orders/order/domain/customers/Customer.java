@@ -27,20 +27,16 @@ public class Customer {
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "CUSTOMER_ID", nullable = false)
-    private List<Order> orders;
+    private List<Order> orders = new ArrayList<>();
 
     public Customer(String firstName, String lastName, String emailAddress, String address, String phoneNumber) {
-        orders = new ArrayList<>();
-    }
 
-    public Customer(int id, String firstName, String lastName, String emailAddress, String address, String phoneNumber, List <Order>orders) {
-        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.emailAddress = emailAddress;
         this.address = address;
         this.phoneNumber = phoneNumber;
-        this.orders = orders;
+
     }
 
 
